@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block titulo %}Registrar Ocorrência{% endblock %}
+
+{% block conteudo %}
+<h2>Registrar nova ocorrência</h2>
+<p>Preencha os dados abaixo. O tipo da ocorrência será classificado automaticamente.</p>
+
+<form action="/boletins" method="post" class="formulario">
+    <label for="solicitante">Nome do solicitante</label>
+    <input type="text" id="solicitante" name="solicitante" required>
+
+    <label for="data_hora">Data e hora do fato</label>
+    <input type="text" id="data_hora" name="data_hora"
+           placeholder="Ex.: 14/06/2026 22:30" required>
+
+    <label for="local">Local do fato</label>
+    <input type="text" id="local" name="local"
+           placeholder="Ex.: Av. Paulista, 1000 - São Paulo/SP" required>
+
+    <label for="descricao">Descrição do ocorrido</label>
+    <textarea id="descricao" name="descricao" rows="6"
+              placeholder="Descreva o que aconteceu com suas palavras." required></textarea>
+
+    <button type="submit">Registrar boletim</button>
+</form>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block titulo %}Boletim {{ boletim.numero_bo if boletim else "" }}{% endblock %}
+
+{% block conteudo %}
+{% if boletim %}
+<div class="boletim">
+    <div class="boletim-cabecalho">
+        <h2>Boletim {{ boletim.numero_bo }}</h2>
+        <span class="etiqueta-tipo">{{ boletim.tipo }}</span>
+    </div>
+
+    <dl class="boletim-dados">
+        <dt>Solicitante</dt>
+        <dd>{{ boletim.solicitante }}</dd>
+
+        <dt>Data e hora do fato</dt>
+        <dd>{{ boletim.data_hora }}</dd>
+
+        <dt>Local</dt>
+        <dd>{{ boletim.local }}</dd>
+
+        <dt>Descrição</dt>
+        <dd>{{ boletim.descricao }}</dd>
+
+        <dt>Registrado em</dt>
+        <dd>{{ boletim.data_registro }}</dd>
+    </dl>
+
+    <a class="botao-secundario" href="/">Registrar outra ocorrência</a>
+    <a class="botao-secundario" href="/boletins">Ver histórico</a>
+</div>
+{% else %}
+<p>Boletim não encontrado.</p>
+<a class="botao-secundario" href="/boletins">Voltar ao histórico</a>
+{% endif %}
+{% endblock %}

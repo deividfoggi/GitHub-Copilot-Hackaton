@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block titulo %}Histórico de Boletins{% endblock %}
+
+{% block conteudo %}
+<h2>Histórico de boletins</h2>
+
+{% if boletins %}
+<table class="tabela">
+    <thead>
+        <tr>
+            <th>Número</th>
+            <th>Tipo</th>
+            <th>Solicitante</th>
+            <th>Data do fato</th>
+            <th>Local</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for boletim in boletins %}
+        <tr>
+            <td><a href="/boletins/{{ boletim.numero_bo }}">{{ boletim.numero_bo }}</a></td>
+            <td><span class="etiqueta-tipo">{{ boletim.tipo }}</span></td>
+            <td>{{ boletim.solicitante }}</td>
+            <td>{{ boletim.data_hora }}</td>
+            <td>{{ boletim.local }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>Nenhum boletim registrado ainda.</p>
+<a class="botao-secundario" href="/">Registrar o primeiro boletim</a>
+{% endif %}
+{% endblock %}

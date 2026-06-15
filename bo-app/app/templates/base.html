@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo %}Sistema de Boletim de Ocorrência{% endblock %}</title>
+    <link rel="stylesheet" href="/static/estilo.css">
+</head>
+<body>
+    <header class="cabecalho">
+        <h1>🚨 Sistema de Boletim de Ocorrência</h1>
+        <nav>
+            <a href="/">Registrar</a>
+            <a href="/boletins">Histórico</a>
+        </nav>
+    </header>
+    <main class="conteudo">
+        {% block conteudo %}{% endblock %}
+    </main>
+    <footer class="rodape">
+        <p>Workshop GitHub Copilot + Microsoft Foundry</p>
+    </footer>
+</body>
+</html>

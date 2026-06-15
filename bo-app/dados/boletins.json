@@ -1,0 +1,38 @@
+[
+  {
+    "numero_bo": "BO-2026-0001",
+    "solicitante": "Maria Aparecida Souza",
+    "data_hora": "10/06/2026 19:45",
+    "local": "Rua das Acácias, 250 - Bairro Centro, Campinas/SP",
+    "tipo": "Furto",
+    "descricao": "Deixei minha bicicleta presa em frente à padaria e quando voltei o furto já tinha acontecido, levaram sem que ninguém percebesse.",
+    "data_registro": "10/06/2026 20:10"
+  },
+  {
+    "numero_bo": "BO-2026-0002",
+    "solicitante": "João Carlos Mendes",
+    "data_hora": "12/06/2026 22:30",
+    "local": "Av. Brasil, 1820 - Jardim América, Campinas/SP",
+    "tipo": "Acidente de Trânsito",
+    "descricao": "Houve uma colisão entre dois veículos no cruzamento. Ninguém ficou ferido, mas os carros tiveram danos.",
+    "data_registro": "12/06/2026 22:55"
+  },
+  {
+    "numero_bo": "BO-2026-0003",
+    "solicitante": "Fernanda Lima Rocha",
+    "data_hora": "13/06/2026 01:15",
+    "local": "Rua dos Ipês, 75 - Vila Nova, Campinas/SP",
+    "tipo": "Perturbação do Sossego",
+    "descricao": "Festa com som alto na casa vizinha desde a madrugada, barulho insuportável impedindo o descanso dos moradores.",
+    "data_registro": "13/06/2026 01:40"
+  },
+  {
+    "numero_bo": "BO-2026-0004",
+    "solicitante": "João Pedro Paulo",
+    "data_hora": "15/06/2026 14:35",
+    "local": "Avenda Paulista, 1000",
+    "tipo": "Furto",
+    "descricao": "Estava dirigindo o veículo no endereço citado e um individuo subtraiu meu celular do suporte e evadiu o local.",
+    "data_registro": "15/06/2026 14:36"
+  }
+]

@@ -1,0 +1,172 @@
+:root {
+    --cor-primaria: #1b3a6b;
+    --cor-destaque: #c0392b;
+    --cor-fundo: #f4f6f9;
+    --cor-borda: #d8dee6;
+    --cor-texto: #1f2933;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", system-ui, sans-serif;
+    background: var(--cor-fundo);
+    color: var(--cor-texto);
+}
+
+.cabecalho {
+    background: var(--cor-primaria);
+    color: #fff;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.cabecalho h1 {
+    font-size: 1.3rem;
+    margin: 0;
+}
+
+.cabecalho nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 1.5rem;
+    font-weight: 600;
+}
+
+.cabecalho nav a:hover {
+    text-decoration: underline;
+}
+
+.conteudo {
+    max-width: 760px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #fff;
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.formulario label {
+    font-weight: 600;
+    margin-top: 0.8rem;
+}
+
+.formulario input,
+.formulario textarea {
+    padding: 0.6rem;
+    border: 1px solid var(--cor-borda);
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.formulario button {
+    margin-top: 1.5rem;
+    padding: 0.8rem;
+    background: var(--cor-primaria);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.formulario button:hover {
+    background: #15294c;
+}
+
+.boletim-cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.etiqueta-tipo {
+    background: var(--cor-destaque);
+    color: #fff;
+    padding: 0.3rem 0.8rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.boletim-dados {
+    margin: 1.5rem 0;
+}
+
+.boletim-dados dt {
+    font-weight: 600;
+    color: var(--cor-primaria);
+    margin-top: 1rem;
+}
+
+.boletim-dados dd {
+    margin: 0.2rem 0 0;
+}
+
+.botao-secundario {
+    display: inline-block;
+    margin: 1rem 0.5rem 0 0;
+    padding: 0.6rem 1rem;
+    background: #eef1f5;
+    color: var(--cor-primaria);
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.botao-secundario:hover {
+    background: #e0e5ec;
+}
+
+.tabela {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.tabela th,
+.tabela td {
+    text-align: left;
+    padding: 0.7rem;
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+.tabela th {
+    background: #eef1f5;
+    color: var(--cor-primaria);
+}
+
+.tabela a {
+    color: var(--cor-primaria);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.tabela a:hover {
+    text-decoration: underline;
+}
+
+.rodape {
+    text-align: center;
+    padding: 1.5rem;
+    color: #6b7280;
+    font-size: 0.85rem;
+}

@@ -39,7 +39,10 @@ O agente **não substitui** o sistema: ele o **usa** como ferramenta.
 ## Pré-requisitos
 
 1. Um **projeto no Foundry** com um **modelo implantado** (ex.: `gpt-4o-mini`).
-   > O facilitador pode provisionar isso com a skill **microsoft-foundry**.
+   Você pode criar o projeto e implantar o modelo pelo **portal do Foundry**
+   seguindo a documentação oficial:
+   - [Criar um projeto no Microsoft Foundry](https://learn.microsoft.com/azure/ai-foundry/how-to/create-projects)
+   - [Implantar (deploy) um modelo no Microsoft Foundry](https://learn.microsoft.com/azure/ai-foundry/how-to/deploy-models-openai)
 2. **Azure CLI** autenticada: `az login`.
 3. O **app rodando** em um terminal:
    ```bash

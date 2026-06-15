@@ -28,10 +28,10 @@ quando precisa agir no mundo real.
 [ Agente Foundry ] ──raciocina──> decide chamar uma ferramenta
       │
       ▼
-[ ferramentas.py ]  gerar_bo(), consultar_historico()
+[ Ferramentas (tools) ]  registrar, consultar histórico...
       │  (HTTP)
       ▼
-[ API do app /api ]  ← o mesmo sistema das Etapas 1 e 2
+[ API do app ]  ← o mesmo sistema das Etapas 1 e 2
 ```
 
 O agente **não substitui** o sistema: ele o **usa** como ferramenta.
@@ -68,27 +68,31 @@ FOUNDRY_MODEL_DEPLOYMENT=gpt-4o-mini
 
 ### 2. Crie as ferramentas do agente
 
-Crie o arquivo `agente/ferramentas.py`. Use o Copilot para gerar funções que
-sejam **wrappers sobre a API `/api` do app**:
+O agente precisa de **ferramentas (tools)**: funções que ele pode chamar para
+agir no app. A ideia é que cada ferramenta seja um **wrapper sobre a API** do
+sistema que você explorou nas Etapas 1 e 2.
 
-> Crie funções Python que usem `requests` para chamar a API do app de Boletim de
-> Ocorrência em `http://localhost:8000/api`: uma para **registrar** um boletim
-> (`gerar_bo`), uma para **listar** o histórico (`consultar_historico`) e uma
-> para **consultar** um boletim pelo número (`consultar_boletim`). Leia a URL
-> base de uma variável de ambiente `BO_API_URL`.
+Primeiro, descubra com o Copilot o que a API oferece:
 
-Confira no Copilot o que cada função faz e como ela se conecta ao app.
+> Quais rotas de API este app expõe? Para cada uma, mostre o método, o caminho
+> e o que ela espera receber e retornar.
+
+Agora crie funções Python (use `requests`) que chamem essas rotas: pelo menos
+uma para **registrar** um boletim, uma para **listar** o histórico e uma para
+**consultar** um boletim específico. Leia a URL base de uma variável de
+ambiente. Peça ajuda ao Copilot e confira o que cada função faz e como ela se
+conecta ao app.
 
 ### 3. Crie o agente Foundry
 
-Crie o arquivo `agente/agente_bo.py`. Use o Copilot para montar o agente usando
-o SDK do Microsoft Foundry e registrar as funções de `ferramentas.py` como tools:
+Crie o agente usando o SDK do Microsoft Foundry e registre as funções do passo
+anterior como **tools**. Use o Copilot para montar isso:
 
 > Crie um agente do Microsoft Foundry (`azure-ai-projects` / `azure-ai-agents`)
 > que se autentique com `DefaultAzureCredential`, leia `FOUNDRY_PROJECT_ENDPOINT`
 > e `FOUNDRY_MODEL_DEPLOYMENT` do ambiente, e registre como ferramentas as
-> funções de `ferramentas.py`. Inclua um `main()` que envie um relato de exemplo
-> ao agente e imprima a resposta.
+> funções que criei. Inclua um `main()` que envie um relato de exemplo ao agente
+> e imprima a resposta.
 
 Depois, refine as **instruções do agente** com a ajuda do Copilot:
 
@@ -97,18 +101,15 @@ Depois, refine as **instruções do agente** com a ajuda do Copilot:
 
 ### 4. Rode o agente
 
-```bash
-python agente_bo.py
-```
-
-O agente deve receber o relato de exemplo, **chamar a ferramenta `gerar_bo`** e
-responder com o número e o tipo do boletim. Confira em
-<http://localhost:8000/boletins> que o boletim realmente foi criado!
+Execute o script que você criou. O agente deve receber o relato de exemplo,
+**chamar a ferramenta de registro** e responder com o número e o tipo do
+boletim. Confira em <http://localhost:8000/boletins> que o boletim realmente
+foi criado!
 
 ## Critério de conclusão
 
 - [ ] O agente foi criado no Foundry sem erros.
-- [ ] Ao receber um relato, o agente chama a ferramenta `gerar_bo`.
+- [ ] Ao receber um relato, o agente chama a ferramenta de registro.
 - [ ] O boletim aparece no histórico do app.
 - [ ] Você consegue explicar a diferença entre "regra fixa" e "agente".
 

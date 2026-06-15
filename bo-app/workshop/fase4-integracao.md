@@ -20,8 +20,8 @@ Continue na pasta [`agente/`](../agente/).
 
 ### 1. Loop de conversa interativo
 
-Abra o `agente/agente_bo.py` que **você criou na Etapa 3**. Use o Copilot para
-evoluir o `main()`:
+Volte ao agente que **você criou na Etapa 3**. Use o Copilot para evoluir o
+ponto de entrada do programa:
 
 > Substitua o relato fixo por um loop interativo: leia a mensagem do usuário com
 > `input()`, envie ao agente e imprima a resposta. Encerre quando o usuário
@@ -29,37 +29,30 @@ evoluir o `main()`:
 
 > **Dica importante:** para manter o contexto da conversa, crie a *thread* uma
 > única vez (fora do loop) e apenas adicione novas mensagens a cada rodada.
-> Peça ao Copilot para refatorar `conversar` separando "criar thread" de
-> "enviar mensagem".
+> Peça ao Copilot para separar "criar a thread" de "enviar a mensagem".
 
 ### 2. Teste um diálogo real
 
-Rode novamente:
-
-```bash
-python agente_bo.py
-```
-
-Experimente conversas como:
+Rode novamente o agente e experimente conversas como:
 
 - "Quero registrar uma ocorrência."  → o agente deve **perguntar** os dados que faltam.
-- "Quantos boletins de furto já existem?" → o agente deve usar `consultar_historico`.
-- "Me mostra os detalhes do BO-2026-0001." → o agente deve usar `consultar_boletim`.
+- "Quantos boletins de furto já existem?" → o agente deve **consultar o histórico**.
+- "Me mostra os detalhes de um boletim específico." → o agente deve **consultar** o boletim.
 
 ### 3. Pense na integração de verdade
 
 Discussão em grupo (com apoio do Copilot para prototipar):
 
-- Como seria expor o agente como um **endpoint no app** (ex.: `POST /api/chat`)?
+- Como seria expor o agente como um **endpoint dentro do app** (uma rota de chat)?
 - O que muda em termos de **autenticação** e **segredos** quando o agente sai do
   seu notebook e vai para produção?
 - Onde guardar o `FOUNDRY_PROJECT_ENDPOINT` com segurança?
 
 Prompt sugerido para prototipar (opcional):
 
-> Mostre como eu poderia criar uma rota `POST /api/chat` no `app/main.py` que
-> recebe uma mensagem e repassa para o agente Foundry, retornando a resposta.
-> Apenas um esboço, sem quebrar as rotas existentes.
+> Mostre como eu poderia criar uma rota de chat no app que recebe uma mensagem
+> e a repassa para o agente Foundry, retornando a resposta. Apenas um esboço,
+> sem quebrar as rotas existentes.
 
 ## Critério de conclusão
 

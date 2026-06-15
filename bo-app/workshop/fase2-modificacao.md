@@ -9,80 +9,62 @@ com segurança.
 ## A tarefa
 
 Hoje o boletim identifica o solicitante apenas pelo **nome**, o que não é
-suficiente para um registro oficial. Vamos adicionar o campo **`cpf`** ao
-solicitante, capturando-o no formulário e propagando-o pelo modelo de dados,
-pela persistência em JSON e pela API.
+suficiente para um registro oficial. Sua missão: adicionar o campo **CPF do
+solicitante** ao sistema, de ponta a ponta — da tela em que o cidadão digita
+até onde o dado é guardado e exibido.
 
-Diferente do `tipo` (que é **calculado** a partir da descrição), o CPF é um
-dado **informado pelo cidadão** — ele entra pelo formulário e pela API, não é
+Diferente do tipo da ocorrência (que é **calculado** pelo sistema), o CPF é um
+dado **informado pelo cidadão**: ele entra pela interface e pela API, não é
 deduzido pelo sistema.
 
 > Sugestão de regra: valide que o CPF tenha 11 dígitos. A validação completa
 > (dígitos verificadores) pode ser um desafio extra para o grupo.
 
-## Passo a passo
+## Como abordar
 
-A mudança atravessa várias camadas. Use o Copilot em cada uma.
+Essa mudança atravessa **várias camadas** do sistema. O segredo é usar o Copilot
+para descobrir **quais** são essas camadas — e alterar uma de cada vez.
 
-### 1. Modelo de dados
+### 1. Mapeie o impacto antes de mudar
 
-Em [`app/models.py`](../app/models.py), adicione o campo `cpf` aos modelos
-`Ocorrencia` (entrada) e `BoletimOcorrencia` (saída). Prompt sugerido:
+Comece pedindo ao Copilot um plano, sem alterar nada ainda:
 
-> Adicione um campo `cpf` (string) aos modelos `Ocorrencia` e
-> `BoletimOcorrencia`, com uma descrição indicando que é o CPF de quem
-> registra a ocorrência.
+> Quero adicionar um campo "CPF do solicitante" a este sistema, do formulário
+> até a persistência e a exibição. Quais arquivos e funções eu preciso alterar?
+> Liste em ordem, sem mudar nada ainda.
 
-### 2. Formulário
+### 2. Faça a mudança camada por camada
 
-Em [`app/templates/formulario.html`](../app/templates/formulario.html),
-adicione o campo de CPF. Prompt sugerido:
+Siga a lista que o Copilot te deu. Em cada ponto, peça a alteração e **revise**
+o que ele propõe antes de aplicar. Garanta que você cobriu:
 
-> Adicione um campo de entrada "CPF do solicitante" ao formulário, logo abaixo
-> do nome do solicitante, com `name="cpf"`, obrigatório e um placeholder de
-> exemplo.
+- onde os dados de um boletim são **modelados**;
+- onde o cidadão **digita** as informações;
+- onde os dados são **recebidos** e o boletim é **montado**;
+- onde o boletim é **exibido** (detalhe e histórico).
 
-### 3. Rota e montagem do boletim
-
-Em [`app/main.py`](../app/main.py), receba o novo campo do formulário e repasse
-para a `Ocorrencia`. Prompt sugerido:
-
-> Em `registrar_boletim`, adicione o parâmetro `cpf: str = Form(...)` e inclua
-> `cpf=cpf` ao criar a `Ocorrencia`.
-
-Em [`app/classificacao.py`](../app/classificacao.py), faça `montar_boletim`
-copiar o CPF para o boletim:
-
-> Atualize `montar_boletim` para também preencher o campo `cpf` do
-> `BoletimOcorrencia` a partir da `Ocorrencia`.
-
-### 4. Exibição
-
-Mostre o CPF nas telas. Prompts sugeridos:
-
-> Em `boletim.html`, exiba o CPF do solicitante junto com o nome.
-
-> Em `lista.html`, adicione uma coluna "CPF" na tabela de boletins.
+> Teste a cada camada em vez de mudar tudo de uma vez. Assim fica fácil saber
+> onde algo quebrou.
 
 ## Testando a mudança
 
 1. Reinicie o servidor (ou confie no `--reload`).
 2. Registre um novo boletim informando o CPF → ele deve aparecer no detalhe do
    boletim e no histórico.
-3. Confira que o CPF foi salvo no arquivo
-   [`dados/boletins.json`](../dados/boletins.json).
-4. Teste também via API (`POST /api/boletins`) incluindo o campo `cpf` no JSON.
+3. Confirme que o CPF foi de fato **persistido** junto com o boletim.
+4. Teste também pela **API**: descubra com o Copilot qual rota registra um
+   boletim e inclua o CPF na requisição.
 
-> Os boletins antigos do seed não têm o campo `cpf`. Discuta com o grupo: como
+> Os boletins antigos não têm o campo `cpf`. Discuta com o grupo: como
 > o Copilot pode ajudar a lidar com dados antigos (migração / valor padrão)?
 
 ## Critério de conclusão
 
-- [ ] O campo `cpf` existe nos modelos `Ocorrencia` e `BoletimOcorrencia`.
-- [ ] O formulário coleta o CPF do solicitante.
-- [ ] O CPF é repassado da rota até o boletim montado.
+- [ ] O sistema passou a modelar o CPF do solicitante.
+- [ ] A interface coleta o CPF do solicitante.
+- [ ] O CPF é repassado do recebimento até o boletim montado.
 - [ ] O CPF aparece na tela de detalhe e no histórico.
-- [ ] Novos boletins salvam o CPF no JSON (e a API aceita o campo).
+- [ ] Novos boletins persistem o CPF (e a API aceita o campo).
 
 ## Gancho para a próxima etapa
 

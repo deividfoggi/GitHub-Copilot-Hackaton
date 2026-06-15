@@ -13,11 +13,13 @@ menos **duas** das trilhas abaixo.
 
 ## Trilha A — Testes automatizados
 
-O projeto **ainda não tem testes**. Vamos criar.
+O projeto **ainda não tem testes**. Vamos criar. Comece pedindo ao Copilot para
+localizar a lógica mais importante de testar (a classificação e a geração do
+número do boletim) e cobri-la:
 
-> Crie testes com `pytest` para o arquivo `app/classificacao.py`. Cubra:
-> classificação de cada tipo, o caso "Outros" quando nenhuma palavra-chave casa,
-> e o formato do número do BO gerado por `gerar_numero_bo`.
+> Crie testes com `pytest` para a lógica de classificação deste projeto. Cubra
+> cada tipo de ocorrência, o caso em que nenhuma regra casa e o formato do
+> número do boletim gerado.
 
 Depois:
 
@@ -28,34 +30,34 @@ pytest -v
 
 Desafio extra:
 
-> Gere também testes para as rotas `/api` usando o `TestClient` do FastAPI.
+> Gere também testes para as rotas da API usando o `TestClient` do FastAPI.
 
 ## Trilha B — Tratamento de erros
 
-Hoje o app assume o "caminho feliz". Vamos torná-lo mais robusto.
+Hoje o app assume o "caminho feliz". Vamos torná-lo mais robusto. Use o Copilot
+para encontrar os pontos frágeis e protegê-los:
 
-> Em `app/repositorio.py`, trate o caso de o arquivo `boletins.json` não existir
-> ou estar corrompido (JSON inválido), retornando uma lista vazia com segurança.
+> Onde este projeto lê os dados persistidos? Trate o caso de o arquivo de dados
+> não existir ou estar corrompido, retornando uma lista vazia com segurança.
 
-> Em `app/main.py`, retorne um erro HTTP 404 adequado quando um boletim não for
-> encontrado nas rotas de detalhe (HTML e API).
+> Garanta que o sistema retorne um erro HTTP 404 adequado quando um boletim não
+> for encontrado, tanto na página quanto na API.
 
 ## Trilha C — Documentação e qualidade de código
 
-> Adicione docstrings claras (em português) às funções de `app/classificacao.py`
-> e `app/repositorio.py`, explicando parâmetros e retorno.
+> Adicione docstrings claras (em português) às funções centrais do projeto
+> (classificação e persistência), explicando parâmetros e retorno.
 
-> Revise o `app/main.py` e sugira melhorias de organização sem alterar o
-> comportamento. Explique cada sugestão antes de aplicar.
+> Revise o ponto de entrada da aplicação e sugira melhorias de organização sem
+> alterar o comportamento. Explique cada sugestão antes de aplicar.
 
 ## Trilha D — Refatorar a classificação (avançado)
 
 Conecte o ciclo completo do workshop:
 
-> Proponha como substituir a classificação por palavras-chave de
-> `classificacao.py` por uma chamada ao **agente Foundry**, mantendo a mesma
-> assinatura de função para não quebrar o resto do sistema. Apenas o desenho,
-> destacando prós e contras.
+> Proponha como substituir a classificação por palavras-chave por uma chamada ao
+> **agente Foundry**, mantendo a mesma assinatura de função para não quebrar o
+> resto do sistema. Apenas o desenho, destacando prós e contras.
 
 Essa é a síntese da mensagem do dia: **a regra fixa (build com Copilot) pode dar
 lugar à inteligência em tempo de execução (Foundry)** — sem reescrever o sistema

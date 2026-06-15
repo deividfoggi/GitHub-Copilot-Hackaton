@@ -38,7 +38,7 @@ A biblioteca de prompts úteis está em [prompts.md](prompts.md).
 2. **VS Code** com a extensão **GitHub Copilot** ativa.
 3. Suba o app uma vez para garantir que está tudo certo:
    ```bash
-   python -m venv .venv
+   python3 -m venv .venv
    source .venv/bin/activate      # Windows: .venv\Scripts\activate
    pip install -r requirements.txt
    uvicorn app.main:app --reload

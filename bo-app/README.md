@@ -69,7 +69,7 @@ Pré-requisitos: **Python 3.11+**.
 
 ```bash
 # 1. Crie e ative um ambiente virtual
-python -m venv .venv
+python3 -m venv .venv
 source .venv/bin/activate        # Windows: .venv\Scripts\activate
 
 # 2. Instale as dependências

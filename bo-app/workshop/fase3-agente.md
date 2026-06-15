@@ -53,11 +53,25 @@ propósito: você vai criar as ferramentas e o agente do zero, com o Copilot.
 
 ### 1. Configure o ambiente
 
+> **Importante:** use o **mesmo ambiente virtual** criado nas etapas
+> anteriores (em `bo-app/.venv`). Se você abriu um terminal novo, ative-o
+> antes de instalar. Sem o venv ativo, o `pip` usa o Python do sistema e
+> falha com `externally-managed-environment` (PEP 668) no macOS/Linux.
+
 ```bash
+# A partir da pasta bo-app/, ative o ambiente virtual
+source .venv/bin/activate        # Windows: .venv\Scripts\activate
+
+# Entre na pasta do agente e instale as dependências
 cd agente
 pip install -r requirements.txt
 cp ../.env.example ../.env
 ```
+
+> Se ainda não criou o `.venv`, volte e crie a partir de `bo-app/`:
+> `python3 -m venv .venv && source .venv/bin/activate`.
+> Confirme que o venv está ativo: o prompt mostra `(.venv)` e
+> `which pip` aponta para `bo-app/.venv/bin/pip`.
 
 Edite o `.env` e preencha:
 

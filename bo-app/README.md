@@ -59,7 +59,7 @@ bo-app/
 │   └── static/           # Estilos (CSS)
 ├── dados/
 │   └── boletins.json     # Boletins registrados (com exemplos)
-├── agente/               # Esqueleto do agente Foundry (Etapa 3+)
+├── agente/               # Onde você constrói o agente Foundry (Etapa 3+)
 └── workshop/             # Guias e prompts de cada etapa
 ```
 
@@ -136,11 +136,11 @@ Os guias detalhados estão em [`workshop/`](workshop/).
 ### Etapa 3 — Criar um agente inteligente (Microsoft Foundry)
 
 1. Configure o acesso ao Foundry (`.env`, `az login`, modelo implantado).
-2. Entenda as ferramentas em [`agente/ferramentas.py`](agente/ferramentas.py) e o esqueleto em [`agente/agente_bo.py`](agente/agente_bo.py).
-3. Refine as instruções do agente para conversar e registrar boletins via API.
+2. Crie as ferramentas em `agente/ferramentas.py` (wrappers sobre a API `/api`) com o Copilot.
+3. Crie o agente em `agente/agente_bo.py` e refine suas instruções para conversar e registrar boletins via API.
 
-> 💡 *Copilot:* `Explique o que cada função de ferramentas.py faz e como chama a API.`
-> e `Melhore as instruções do agente para pedir os dados que faltarem antes de registrar.`
+> 💡 *Copilot:* `Crie funções que chamem a API /api do app para registrar e consultar boletins.`
+> e `Crie um agente Foundry que registre essas funções como ferramentas.`
 
 ### Etapa 4 — Integrar o agente ao sistema (Foundry + API)
 

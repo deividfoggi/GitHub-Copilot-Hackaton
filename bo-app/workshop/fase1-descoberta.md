@@ -39,8 +39,7 @@ Abra [`app/main.py`](../app/main.py) e pergunte:
 > Quando o usuário envia o formulário, qual é o caminho completo do dado até ele
 > ser salvo? Cite as funções e arquivos envolvidos na ordem.
 
-Desenhe (ou peça ao Copilot para desenhar) o fluxo:
-`formulário → main.py → classificacao.py → repositorio.py → boletins.json`.
+Desenhe (ou peça ao Copilot para desenhar) o fluxo da transação na aplicação.
 
 ### 4. Entenda os dados
 

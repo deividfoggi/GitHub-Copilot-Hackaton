@@ -48,17 +48,10 @@ O agente **não substitui** o sistema: ele o **usa** como ferramenta.
 
 ## Passo a passo
 
-Trabalhe na pasta [`agente/`](../agente/).
+Trabalhe na pasta [`agente/`](../agente/). Ela vem **vazia de código** de
+propósito: você vai criar as ferramentas e o agente do zero, com o Copilot.
 
-### 1. Conheça as ferramentas
-
-Abra [`agente/ferramentas.py`](../agente/ferramentas.py). Use o Copilot:
-
-> Explique o que cada função deste arquivo faz e como ela se conecta ao app.
-
-Repare: cada função é um wrapper sobre a API `/api` do app.
-
-### 2. Configure o ambiente
+### 1. Configure o ambiente
 
 ```bash
 cd agente
@@ -73,10 +66,31 @@ FOUNDRY_PROJECT_ENDPOINT=https://<seu-projeto>.services.ai.azure.com/api/project
 FOUNDRY_MODEL_DEPLOYMENT=gpt-4o-mini
 ```
 
-### 3. Complete o esqueleto do agente
+### 2. Crie as ferramentas do agente
 
-Abra [`agente/agente_bo.py`](../agente/agente_bo.py) e procure os `TODO`s.
-Refine as **instruções do agente** (`INSTRUCOES_AGENTE`) com a ajuda do Copilot:
+Crie o arquivo `agente/ferramentas.py`. Use o Copilot para gerar funções que
+sejam **wrappers sobre a API `/api` do app**:
+
+> Crie funções Python que usem `requests` para chamar a API do app de Boletim de
+> Ocorrência em `http://localhost:8000/api`: uma para **registrar** um boletim
+> (`gerar_bo`), uma para **listar** o histórico (`consultar_historico`) e uma
+> para **consultar** um boletim pelo número (`consultar_boletim`). Leia a URL
+> base de uma variável de ambiente `BO_API_URL`.
+
+Confira no Copilot o que cada função faz e como ela se conecta ao app.
+
+### 3. Crie o agente Foundry
+
+Crie o arquivo `agente/agente_bo.py`. Use o Copilot para montar o agente usando
+o SDK do Microsoft Foundry e registrar as funções de `ferramentas.py` como tools:
+
+> Crie um agente do Microsoft Foundry (`azure-ai-projects` / `azure-ai-agents`)
+> que se autentique com `DefaultAzureCredential`, leia `FOUNDRY_PROJECT_ENDPOINT`
+> e `FOUNDRY_MODEL_DEPLOYMENT` do ambiente, e registre como ferramentas as
+> funções de `ferramentas.py`. Inclua um `main()` que envie um relato de exemplo
+> ao agente e imprima a resposta.
+
+Depois, refine as **instruções do agente** com a ajuda do Copilot:
 
 > Melhore as instruções do agente para que ele peça os dados que faltarem antes
 > de registrar o boletim e confirme o número gerado ao final.

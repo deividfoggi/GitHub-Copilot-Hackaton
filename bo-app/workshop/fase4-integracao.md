@@ -20,8 +20,8 @@ Continue na pasta [`agente/`](../agente/).
 
 ### 1. Loop de conversa interativo
 
-Abra [`agente/agente_bo.py`](../agente/agente_bo.py) e localize o `TODO` da Etapa 4
-no `main()`. Use o Copilot:
+Abra o `agente/agente_bo.py` que **você criou na Etapa 3**. Use o Copilot para
+evoluir o `main()`:
 
 > Substitua o relato fixo por um loop interativo: leia a mensagem do usuário com
 > `input()`, envie ao agente e imprima a resposta. Encerre quando o usuário

@@ -1,20 +1,27 @@
 # Agente Inteligente de Boletim de Ocorrência (Microsoft Foundry)
 
-Esta pasta contém o **esqueleto** do agente que você vai construir na Etapa 3 do
-workshop. O agente conversa em linguagem natural e usa o app de Boletim de
-Ocorrência como ferramenta — registrando e consultando boletins pela API.
+Esta é a pasta onde **você vai construir**, do zero e com a ajuda do GitHub
+Copilot, o agente das Etapas 3 e 4 do workshop. O agente conversa em linguagem
+natural e usa o app de Boletim de Ocorrência como ferramenta — registrando e
+consultando boletins pela API.
 
 ```
-[ Usuário ] → [ Agente Foundry ] → [ ferramentas.py ] → [ API do app /api ]
+[ Usuário ] → [ Agente Foundry ] → [ ferramentas ] → [ API do app /api ]
 ```
 
-## Arquivos
+## O que você vai criar
 
-| Arquivo | Descrição |
-|---------|-----------|
-| `ferramentas.py` | Ferramentas (tools) que chamam a API do app |
-| `agente_bo.py` | Esqueleto do agente Foundry com `TODO`s a completar |
-| `requirements.txt` | Dependências do agente |
+| Arquivo | Você cria na | Descrição |
+|---------|--------------|-----------|
+| `ferramentas.py` | Etapa 3 | Ferramentas (tools) que chamam a API do app |
+| `agente_bo.py` | Etapas 3 e 4 | O agente Foundry e o loop de conversa |
+
+> Estes arquivos **não vêm prontos** de propósito. Construí-los com o Copilot é o
+> objetivo do workshop. Siga o passo a passo em
+> [`workshop/fase3-agente.md`](../workshop/fase3-agente.md) e
+> [`workshop/fase4-integracao.md`](../workshop/fase4-integracao.md).
+
+O `requirements.txt` já lista as dependências necessárias para te ajudar no setup.
 
 ## Pré-requisitos
 
@@ -25,7 +32,7 @@ Ocorrência como ferramenta — registrando e consultando boletins pela API.
    uvicorn app.main:app --reload
    ```
 
-## Passo a passo (happy path)
+## Setup do ambiente
 
 ```bash
 # 1. A partir da pasta bo-app/, entre na pasta do agente
@@ -38,20 +45,8 @@ pip install -r requirements.txt
 cp ../.env.example ../.env
 #   FOUNDRY_PROJECT_ENDPOINT=https://<seu-projeto>.services.ai.azure.com/api/projects/<projeto>
 #   FOUNDRY_MODEL_DEPLOYMENT=gpt-4o-mini
-
-# 4. Rode o agente
-python agente_bo.py
 ```
 
-## O que completar (Etapas 3 e 4)
-
-Procure pelos comentários `TODO` em `agente_bo.py`:
-
-- **Etapa 3** — Refinar as instruções do agente para extrair os dados da
-  conversa e registrar o boletim corretamente.
-- **Etapa 4** — Transformar a demonstração em um loop de conversa interativo e
-  conectar o agente ao fluxo do sistema.
-
-> Dica: use o GitHub Copilot para completar os `TODO`s e entender o SDK.
+> Dica: use o GitHub Copilot para descobrir o SDK e gerar o código.
 > Se o setup do Foundry estiver disponível, o facilitador pode usar a skill
 > **microsoft-foundry** para criar o projeto e implantar o modelo.

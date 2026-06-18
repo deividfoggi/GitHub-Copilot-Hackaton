@@ -113,4 +113,16 @@ uvicorn app.main:app --reload
 
 Abra o navegador, <http://localhost:8000> e registre um boletim de teste.
 
+### Autentique no GitHub Copilot
+
+Como último passo de preparação, autentique no GitHub Copilot com a credencial
+fornecida para o workshop:
+
+1. No VS Code, clique no ícone do GitHub Copilot na barra de status, logo acima do relógio do Windows. ![alt text](media/copilot-icon.png)
+2. Clique no botão **Use AI Features**.
+3. Clique em **Continue with GitHub** e siga o processo de login usando a credencial fornecida pela organização do workshop.
+4. Quando solicitado, clique em Continue e Authorize para conceder as permissões necessárias.
+5. Quando colicitado abrir o Visual Studio Code, clique em Open.
+6. Para confirmar de que o Copilot esta realmente autenticado, clique novamente no ícone do GitHub Copilot na barra de status. Ele deve mostrar Informações sobre o uso (Copilot Business Usage) e o botão **Use AI Features** não deve ser mais exibido.
+
 Pronto? Vá para a [Etapa 1](fase1-descoberta.md).

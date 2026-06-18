@@ -44,10 +44,11 @@ O agente **não substitui** o sistema: ele o **usa** como ferramenta.
    - [Criar um projeto no Microsoft Foundry](https://learn.microsoft.com/azure/ai-foundry/how-to/create-projects)
    - [Implantar (deploy) um modelo no Microsoft Foundry](https://learn.microsoft.com/azure/ai-foundry/how-to/deploy-models-openai)
 2. **Azure CLI** autenticada: `az login`.
-3. O **app rodando** em um terminal:
-   ```bash
+3. O **app rodando** em um terminal. Na pasta `bo-app/` com o venv ativo:
+   ```powershell
    uvicorn app.main:app --reload
    ```
+   *(O comando é igual no Windows, macOS e Linux.)*
 
 ### Se você nunca criou nada no Foundry (guia rápido)
 
@@ -80,12 +81,25 @@ propósito: você vai criar as ferramentas e o agente do zero, com o Copilot.
 
 > **Importante:** use o **mesmo ambiente virtual** criado nas etapas
 > anteriores (em `bo-app/.venv`). Se você abriu um terminal novo, ative-o
-> antes de instalar. Sem o venv ativo, o `pip` usa o Python do sistema e
-> falha com `externally-managed-environment` (PEP 668) no macOS/Linux.
+> antes de instalar.
+
+**Windows (PowerShell ou Prompt de Comando):**
+
+```powershell
+# A partir da pasta bo-app/, ative o ambiente virtual
+.venv\Scripts\activate
+
+# Entre na pasta do agente e instale as dependências
+cd agente
+pip install -r requirements.txt
+copy ..\.env.example ..\.env
+```
+
+**macOS / Linux:**
 
 ```bash
 # A partir da pasta bo-app/, ative o ambiente virtual
-source .venv/bin/activate        # Windows: .venv\Scripts\activate
+source .venv/bin/activate
 
 # Entre na pasta do agente e instale as dependências
 cd agente
@@ -93,10 +107,9 @@ pip install -r requirements.txt
 cp ../.env.example ../.env
 ```
 
-> Se ainda não criou o `.venv`, volte e crie a partir de `bo-app/`:
-> `python3 -m venv .venv && source .venv/bin/activate`.
-> Confirme que o venv está ativo: o prompt mostra `(.venv)` e
-> `which pip` aponta para `bo-app/.venv/bin/pip`.
+> Se ainda não criou o `.venv`, crie a partir de `bo-app/`:
+> **Windows:** `py -m venv .venv` | **macOS/Linux:** `python3 -m venv .venv`.
+> Confirme que o venv está ativo: o prompt mostra `(.venv)`.
 
 Edite o `.env` e preencha:
 

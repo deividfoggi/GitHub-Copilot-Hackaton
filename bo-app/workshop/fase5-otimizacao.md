@@ -21,17 +21,25 @@ número do boletim) e cobri-la:
 > cada tipo de ocorrência, o caso em que nenhuma regra casa e o formato do
 > número do boletim gerado.
 
-Depois (com o `.venv` ativo — veja a nota abaixo):
+Depois (com o `.venv` ativo):
 
-```bash
-source .venv/bin/activate        # Windows: .venv\Scripts\activate
+**Windows (PowerShell ou Prompt de Comando):**
+
+```powershell
+.venv\Scripts\activate
 pip install pytest
 pytest -v
 ```
 
-> Em um terminal novo, ative o `.venv` da raiz (`bo-app/`) antes do `pip
-> install`. Sem o venv ativo, o `pip` usa o Python do sistema e falha com
-> `externally-managed-environment` (PEP 668) no macOS/Linux.
+**macOS / Linux:**
+
+```bash
+source .venv/bin/activate
+pip install pytest
+pytest -v
+```
+
+> Ative sempre o `.venv` da raiz (`bo-app/`) antes do `pip install`.
 
 Desafio extra:
 

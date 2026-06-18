@@ -87,8 +87,7 @@ Se o comando `code` não funcionar, abra manualmente pelo VS Code:
 
 ### Confira os arquivos e abra o README da raiz
 
-No painel **Explorer** do VS Code, selecione `README.md` na raiz do repositório para contextualizar o
-desafio e, depois, continue os próximos passos deste guia.
+No painel **Explorer** do VS Code, expanda a pasta bo-app/workshop e selecione `README.md` para abri-lo e continue os passos abaixo.
 
 ### Suba o app uma vez
 

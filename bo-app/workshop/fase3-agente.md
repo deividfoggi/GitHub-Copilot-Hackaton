@@ -49,6 +49,28 @@ O agente **não substitui** o sistema: ele o **usa** como ferramenta.
    uvicorn app.main:app --reload
    ```
 
+### Se você nunca criou nada no Foundry (guia rápido)
+
+Se os participantes ainda nao tiverem ambiente no Azure, use este roteiro curto.
+
+1. Crie um **Resource Group** no portal do Azure:
+      - Acesse <https://portal.azure.com>
+      - Pesquise por **Resource groups** -> **Create**
+      - Defina assinatura, nome (ex.: `rg-bo-hackathon`) e regiao
+2. Crie o recurso de **AI Foundry** no mesmo Resource Group:
+      - Acesse <https://ai.azure.com>
+      - Clique em **Create project**
+      - Escolha assinatura + Resource Group criados no passo anterior
+      - Selecione ou crie o recurso de Foundry durante o assistente
+3. Dentro do projeto, faca o **deploy do modelo**:
+      - Abra a area de modelos/deployments
+      - Implante um modelo de chat (ex.: `gpt-4o-mini`)
+      - Guarde o nome do deployment para usar em `FOUNDRY_MODEL_DEPLOYMENT`
+
+> Dica para facilitadores: valide estes 3 passos antes do workshop e compartilhe
+> uma convencao simples de nomes (Resource Group, projeto e deployment) para
+> reduzir erro de configuracao durante a pratica.
+
 ## Passo a passo
 
 Trabalhe na pasta [`agente/`](../agente/). Ela vem **vazia de código** de

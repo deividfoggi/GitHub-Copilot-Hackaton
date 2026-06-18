@@ -21,17 +21,6 @@ jornada: **entender → evoluir → dar inteligência → integrar → otimizar*
 
 A biblioteca de prompts úteis está em [prompts.md](prompts.md).
 
-## Sugestão de tempo
-
-| Etapa | Duração aproximada |
-|-------|--------------------|
-| Setup + Etapa 1 | 40 min |
-| Etapa 2 | 30 min |
-| Etapa 3 | 40 min |
-| Etapa 4 | 30 min |
-| Etapa 5 | 30 min |
-| Encerramento | 10 min |
-
 ## Antes de começar
 
 1. **Python 3.11+** instalado.
